@@ -1,0 +1,16 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    {{- include "k8s-operator.labels" . | nindent 4 }}
+spec:
+  channel: {{ .Values.subscription.channel | default "stable" }}
+  installPlanApproval: {{ .Values.subscription.installPlanApproval | default "Automatic" }}
+  name: {{ .Values.name  | default .Release.Name }}
+  source: {{ .Values.subscription.source | default "redhat-operators" }}
+  sourceNamespace: {{ .Values.subscription.sourceNamespace | default "openshift-marketplace" }}
+  {{- with .Values.subscription.config }}
+  config:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}  

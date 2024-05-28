@@ -1,0 +1,14 @@
+k8s-operator:
+  name: vault-config-operator 
+  namespace: 
+    name: vault-config-operator
+    labels:
+      openshift.io/cluster-monitoring: "true"
+      argocd.argoproj.io/managed-by: openshift-gitops   
+    annotations:
+      argocd.argoproj.io/sync-options: Delete=false,ServerSideApply=true
+  operatorGroup: 
+     namespace: vault-config-operator
+  subscription: 
+      namespace: vault-config-operator
+      source: community-operators
