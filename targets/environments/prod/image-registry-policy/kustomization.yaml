@@ -1,5 +1,5 @@
 resources:
-  - ../../../../components/allow-image-registries
+  - ../../../../components/image-registry-policy
 patches:
   - target:
       group: config.openshift.io
