@@ -20,7 +20,7 @@ spec:
         path: components/openshift-pipelines-operator
         helm:
           valueFiles:
-            - ../../targets/clusters/{{cluster}}/openshift-pipelines-operator/values.yaml
+            - ../../targets/clusters/local-cluster/openshift-pipelines-operator/values.yaml
       destination:
         namespace: day2-config
         server: "{{server}}" 

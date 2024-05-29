@@ -1,4 +1,0 @@
-k8s-operator:
-  namespace: 
-    labels:
-      target-cluster: local-cluster
