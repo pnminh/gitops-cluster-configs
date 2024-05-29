@@ -11,5 +11,4 @@ oc label managedclusters dev-east2 cluster.open-cluster-management.io/clusterset
 oc apply -f acm-gitops-integration
 ## Links
 https://piotrminkowski.com/2022/10/24/gitops-with-advanced-cluster-management-for-kubernetes/
-
-
+https://medium.com/@mprzygrodzki/argocd-applicationsset-with-helm-72bb6362d494

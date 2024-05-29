@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: openshift-pipelines-operator
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            apps.open-cluster-management.io/cluster-name: local-cluster
+  template:
+    metadata:
+      name: openshift-pipelines-operator
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/pnminh/gitops-cluster-configs.git
+        targetRevision: main
+        path: components/openshift-pipelines-operator
+        helm:
+          valueFiles:
+            - ../../targets/clusters/{{cluster}}/openshift-pipelines-operator/values.yaml
+      destination:
+        namespace: day2-config
+        server: "{{server}}" 
+      syncPolicy:
+        automated:
+          selfHeal: false
+        syncOptions:
+          - CreateNamespace=true 

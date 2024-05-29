@@ -1,4 +1,5 @@
 # assigns managed clusters to the target instance of Argo CD(will show OCP clusters within ArgoCD UI)
+# this creates secrets with label argocd.argoproj.io/secret-type=cluster
 apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
 metadata:
