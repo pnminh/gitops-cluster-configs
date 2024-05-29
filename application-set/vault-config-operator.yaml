@@ -1,3 +1,4 @@
+# target all clusters/values different between environments
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -6,10 +7,10 @@ metadata:
 spec:
   generators:
     - clusterDecisionResource:
-        configMapRef: acm-placement # (1)
+        configMapRef: acm-placement
         labelSelector:
           matchLabels:
-            cluster.open-cluster-management.io/placement: east-gitops-placement
+            cluster.open-cluster-management.io/placement: all-gitops-placement
   template:
     metadata:
       name: vault-config-operator
@@ -21,7 +22,7 @@ spec:
         path: components/vault-config-operator
         helm:
           valueFiles:
-            - "../../targets/clusters/{{name}}/openshift-pipelines-operator/values.yaml"
+            - "../../targets/environments/{{env}}/vault-config-operator/values.yaml" #env: label for the cluster
       destination:
         namespace: vault-config-operator
         server: "{{server}}" 
