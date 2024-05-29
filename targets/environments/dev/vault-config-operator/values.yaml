@@ -4,3 +4,5 @@ k8s-operator:
       env:
       - name: VAULT_ADDR
         value: https://vault-dev.example.com
+      - name: VAULT_SKIP_VERIFY
+        value: "true"

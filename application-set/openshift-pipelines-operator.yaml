@@ -21,6 +21,7 @@ spec:
         path: components/openshift-pipelines-operator
         helm:
           valueFiles:
+            - "values.yaml"
             - "../../targets/clusters/{{name}}/openshift-pipelines-operator/values.yaml"
       destination:
         namespace: openshift-operators

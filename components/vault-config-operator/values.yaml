@@ -5,7 +5,4 @@ k8s-operator:
   subscription: 
       namespace: vault-config-operator
       source: community-operators
-      config:
-        env:
-          - name: VAULT_SKIP_VERIFY
-            value: "true"
+        

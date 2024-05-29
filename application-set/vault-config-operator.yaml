@@ -12,7 +12,7 @@ spec:
             argocd.argoproj.io/secret-type: cluster
   template:
     metadata:
-      name: vault-config-operator
+      name: "{{name}}-vault-config-operator"
     spec:
       project: default
       source:
@@ -21,6 +21,7 @@ spec:
         path: components/vault-config-operator
         helm:
           valueFiles:
+            - "values.yaml"
             - "../../targets/environments/{{metadata.labels.env}}/vault-config-operator/values.yaml" #env: label for the cluster
       destination:
         namespace: vault-config-operator
