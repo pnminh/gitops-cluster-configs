@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: allow-image-registries
+  name: image-registry-policy
   namespace: openshift-gitops
 spec:
   generators:
@@ -12,13 +12,13 @@ spec:
             env: prod
   template:
     metadata:
-      name: "{{name}}-allow-image-registries"
+      name: "{{name}}-image-registry-policy"
     spec:
       project: default
       source:
         repoURL: https://github.com/pnminh/gitops-cluster-configs.git
         targetRevision: main
-        path: targets/environments/{{metadata.labels.env}}/allow-image-registries
+        path: targets/environments/{{metadata.labels.env}}/image-registry-policy
       destination:
         namespace: default
         server: "{{server}}" 
