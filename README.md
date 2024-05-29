@@ -60,15 +60,27 @@ spec:
     apiVersion: cluster.open-cluster-management.io/v1beta1
     name: all-gitops-placement
 ```
+### Openshift GitOps demo
+#### GitOps repository structure
+Rather than using separate branches for each environment or cluster, which is considered [an anti pattern](https://codefresh.io/blog/stop-using-branches-deploying-different-gitops-environments/), our demo employs a streamlined structure utilizing a single Git branch to orchestrate all GitOps activities for day 2 configs.
 
-oc apply -f acm-gitops-integration
+Here's an overview of the repository structure:
+- `Monorepo`: We house all components and their GitOps operations here for streamlined CI/CD. This consolidation is particularly beneficial for managing Day 2 configurations, as they are often interrelated. However, we recognize the flexibility of separate repositories for components and GitOps tasks if they are distinct.
+- `components` directory: Contains applications treated as ArgoCD applications. These can be Helm charts, Kustomize configurations, or any other ArgoCD-supported application types.
+- `targets` directory: Houses targeted clusters, categorized into environments (dev/stage/prod) or stacks (east/west), along with specific clusters. Within these directories, the customized values for components are listed, facilitating their application using ApplicationSet. An alternative structure could involve separate targets directories for each component.
+- `application-set` directory: 1 set per component or other combinations like stacks or environments.
+
 ![cluster-config](./docs/images/cluster-configs.png)
-- Helm chart
-  `helm dependency build`
-- `oc label managedclusters local-cluster env=dev`
-- `oc label managedclusters dev-east2 env=dev`
-- `oc label managedclusters prod-west env=prod`
-oc apply -f acm-gitops-integration
-## Links
-https://piotrminkowski.com/2022/10/24/gitops-with-advanced-cluster-management-for-kubernetes/
-https://medium.com/@mprzygrodzki/argocd-applicationsset-with-helm-72bb6362d494
+
+### Helm chart structures
+- Reusable helm charts: suitable for apps/components with same structure, e.g. spring-boot/nodejs apps.  
+
+![centralized helm charts](./docs/images/helm-centralized.png)
+
+- One-off helm components: can be hosted within GitOps repo(monorepo) on on its own repo. The custom values files should be part of GitOps repo.
+
+![helm component](./docs/images/helm-components.png)
+
+## References
+- https://piotrminkowski.com/2022/10/24/gitops-with-advanced-cluster-management-for-kubernetes/
+- https://medium.com/@mprzygrodzki/argocd-applicationsset-with-helm-72bb6362d494
