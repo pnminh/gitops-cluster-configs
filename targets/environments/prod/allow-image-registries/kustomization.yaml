@@ -1,0 +1,9 @@
+resources:
+  - ../../../../components/allow-image-registries
+patches:
+  - target:
+      group: config.openshift.io
+      kind: Image
+      version: v1
+      name: cluster
+    path: image-patch.yaml
