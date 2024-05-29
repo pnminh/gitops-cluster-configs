@@ -1,29 +1,32 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: openshift-pipelines-operator
+  name: vault-config-operator
   namespace: openshift-gitops
 spec:
   generators:
-    - clusters:
-        selector:
+    - clusterDecisionResource:
+        configMapRef: acm-placement # (1)
+        labelSelector:
           matchLabels:
-            name: local-cluster
+            cluster.open-cluster-management.io/placement: east-gitops-placement
   template:
     metadata:
-      name: openshift-pipelines-operator
+      name: vault-config-operator
     spec:
       project: default
       source:
         repoURL: https://github.com/pnminh/gitops-cluster-configs.git
         targetRevision: main
-        path: components/openshift-pipelines-operator
+        path: components/vault-config-operator
         helm:
           valueFiles:
             - "../../targets/clusters/{{name}}/openshift-pipelines-operator/values.yaml"
       destination:
-        namespace: openshift-operators
+        namespace: vault-config-operator
         server: "{{server}}" 
       syncPolicy:
         automated:
           selfHeal: false
+        syncOptions:
+          - CreateNamespace=true 

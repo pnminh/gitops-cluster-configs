@@ -1,5 +1,5 @@
 k8s-operator:
-  name: openshift-pipelines-operator 
+  name: openshift-pipelines-operator-rh
   subscription: 
       namespace: openshift-operators
       channel: pipelines-1.14
