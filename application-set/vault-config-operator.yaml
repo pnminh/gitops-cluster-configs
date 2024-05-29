@@ -6,11 +6,10 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-    - clusterDecisionResource:
-        configMapRef: acm-placement
-        labelSelector:
+    - clusters:
+        selector:
           matchLabels:
-            cluster.open-cluster-management.io/placement: all-gitops-placement
+            argocd.argoproj.io/secret-type: cluster
   template:
     metadata:
       name: vault-config-operator
@@ -22,7 +21,7 @@ spec:
         path: components/vault-config-operator
         helm:
           valueFiles:
-            - "../../targets/environments/{{env}}/vault-config-operator/values.yaml" #env: label for the cluster
+            - "../../targets/environments/{{metadata.labels.env}}/vault-config-operator/values.yaml" #env: label for the cluster
       destination:
         namespace: vault-config-operator
         server: "{{server}}" 
