@@ -1,0 +1,88 @@
+# Placement determines which managed clusters each subscription, policy or other definition affects
+# this also creates PlacementDecision resource that has clusterName
+# all clusters
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: all-gitops-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+    - east
+    - west
+---
+# east clusters
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: east-gitops-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+    - east
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: env
+              operator: In
+              values:
+                - dev
+                - prod
+---
+# west clusters
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: west-gitops-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+    - west
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: env
+              operator: In
+              values:
+                - dev
+                - prod
+---
+# only dev clusters
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: dev-gitops-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+    - east
+    - west
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: env
+              operator: In
+              values:
+                - dev
+---
+# only prod clusters
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: prod-gitops-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+    - east
+    - west
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: env
+              operator: In
+              values:
+                - prod
