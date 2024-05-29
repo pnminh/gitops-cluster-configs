@@ -18,9 +18,7 @@ spec:
       source:
         repoURL: https://github.com/pnminh/gitops-cluster-configs.git
         targetRevision: main
-        path: environments/{{metadata.labels.env}}/allow-image-registries
-        kustomize:
-          namePrefix: '{{name}}-'
+        path: targets/environments/{{metadata.labels.env}}/allow-image-registries
       destination:
         namespace: default
         server: "{{server}}" 
