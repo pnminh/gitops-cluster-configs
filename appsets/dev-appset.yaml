@@ -9,7 +9,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/pnminh/gitops-cluster-configs.git
-      revision: HEAD
+      revision: apps
       directories:
       - path: apps/*/environments/dev/dev-1
   template:      
