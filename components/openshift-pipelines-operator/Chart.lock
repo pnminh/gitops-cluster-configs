@@ -1,6 +1,0 @@
-dependencies:
-- name: k8s-operator
-  repository: file://../k8s-operator
-  version: 0.1.0
-digest: sha256:da6003d8d341db7ee8f5578f691e0f388eb58cd6babf7de73de2c4a3bb398454
-generated: "2024-05-28T14:45:27.436758-05:00"

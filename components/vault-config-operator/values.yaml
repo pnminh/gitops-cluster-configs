@@ -1,8 +1,0 @@
-k8s-operator:
-  name: vault-config-operator 
-  operatorGroup: 
-     namespace: vault-config-operator
-  subscription: 
-      namespace: vault-config-operator
-      source: community-operators
-        
