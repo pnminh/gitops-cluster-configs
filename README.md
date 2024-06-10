@@ -73,7 +73,7 @@ Here's an overview of the repository structure:
 ![cluster-config](./docs/images/cluster-configs.png)
 ### ApplicationSet configs
 #### Enable webhook
-- Create route for application set controller(edge termination to 8080)
+- Create route for application set controller(edge termination to 7000)
 - On Git, add $APPSET_ROUTE/api/webhook as URL
 ### Helm chart structures
 - Reusable helm charts: suitable for apps/components with same structure, e.g. spring-boot/nodejs apps.  

@@ -23,7 +23,12 @@ spec:
       source:
         repoURL: https://github.com/pnminh/gitops-cluster-configs.git
         targetRevision: apps
-        path: '{{.path.path}}'
+        path: 'apps/{{index .path.segments 1}}'
+        helm:
+          valueFiles:
+            - "values.yaml"
+            - "environments/dev/values.yaml"
+            - "environments/dev/{{.path.basename}}/values.yaml"
       
       # Destination cluster and namespace to deploy the application
       destination:
