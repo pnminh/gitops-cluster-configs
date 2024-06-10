@@ -1,1 +1,10 @@
 # Values file for todo-api in dev environment, cluster dev-1
+# Values file for todo-api chart
+deploy-app:
+  image:
+    registry: quay.io/pnminh232/todo-api
+    pullPolicy: Always
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "main-57c52e3"
+  imagePullSecrets: 
+    - name: quay

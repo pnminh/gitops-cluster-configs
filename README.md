@@ -71,7 +71,10 @@ Here's an overview of the repository structure:
 - `application-set` directory: 1 set per component or other combinations like stacks or environments.
 
 ![cluster-config](./docs/images/cluster-configs.png)
-
+### ApplicationSet configs
+#### Enable webhook
+- Create route for application set controller(edge termination to 8080)
+- On Git, add $APPSET_ROUTE/api/webhook as URL
 ### Helm chart structures
 - Reusable helm charts: suitable for apps/components with same structure, e.g. spring-boot/nodejs apps.  
 
