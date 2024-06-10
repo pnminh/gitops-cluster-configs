@@ -1,7 +1,8 @@
 # Values file for todo-api chart
 deploy-app:
   image:
-    registry: quay.io/pnminh232/todo-api
+    registry: quay.io/pnminh232
+    path: todo-api
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
     tag: "main-57c52e3"
