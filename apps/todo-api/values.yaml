@@ -8,3 +8,10 @@ deploy-app:
     tag: "main-57c52e3"
   imagePullSecrets: 
     - name: quay
+  env:
+    - name: quarkus.datasource.username
+      value: admin
+    - name: quarkus.datasource.password
+      value: admin
+    - name: quarkus.datasource.jdbc.url
+      value: jdbc:postgresql://postgresql:5432/todo-db
