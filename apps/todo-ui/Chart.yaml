@@ -1,6 +1,6 @@
 apiVersion: v2
-name: todo-api
-description: A Helm chart for todo-api
+name: todo-ui
+description: A Helm chart for todo-ui
 type: application
 version: 0.1.0
 dependencies:

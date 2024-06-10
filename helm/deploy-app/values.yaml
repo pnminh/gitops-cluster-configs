@@ -11,8 +11,6 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.0.0"
 
-imagePullSecrets: 
-  - name: codefresh-registry-creds
 nameOverride: ""
 fullnameOverride: ""
 

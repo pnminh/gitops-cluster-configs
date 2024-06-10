@@ -84,3 +84,4 @@ Here's an overview of the repository structure:
 ## References
 - https://piotrminkowski.com/2022/10/24/gitops-with-advanced-cluster-management-for-kubernetes/
 - https://medium.com/@mprzygrodzki/argocd-applicationsset-with-helm-72bb6362d494
+- https://codefresh.io/blog/how-to-structure-your-argo-cd-repositories-using-application-sets/?_gl=1*tbotel*_up*MQ..*_ga*ODU5NjA5NzA1LjE3MTY5OTIwMzI.*_ga_TM00L7W132*MTcxNjk5MjAzMS4xLjAuMTcxNjk5MjAzMS4wLjAuMA..

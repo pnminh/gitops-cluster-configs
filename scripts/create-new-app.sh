@@ -10,7 +10,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 # Set app name
 APP_NAME=$1
 BASE_DIR="$SCRIPT_DIR/../apps/$APP_NAME"
-CHART_DIR="$BASE_DIR/$APP_NAME"
+CHART_DIR="$BASE_DIR"
 ENVIRONMENTS_DIR="$BASE_DIR/environments"
 CHART_YAML="$CHART_DIR/Chart.yaml"
 VALUES_YAML="$CHART_DIR/values.yaml"

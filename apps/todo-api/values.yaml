@@ -1,5 +1,9 @@
-k8s-operator:
-  name: openshift-pipelines-operator-rh
-  subscription: 
-      namespace: openshift-operators
-      channel: pipelines-1.14
+# Values file for todo-api chart
+deploy-app:
+  image:
+    registry: quay.io/pnminh232/todo-api
+    pullPolicy: Always
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "main-57c52e3"
+  imagePullSecrets: 
+    - name: quay
