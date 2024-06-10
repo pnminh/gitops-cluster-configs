@@ -1,8 +1,0 @@
-k8s-operator:
-  subscription:
-     config:
-      env:
-      - name: VAULT_ADDR
-        value: https://vault-dev.example.com
-      - name: VAULT_SKIP_VERIFY
-        value: "true"

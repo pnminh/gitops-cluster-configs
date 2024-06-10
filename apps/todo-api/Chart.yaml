@@ -26,4 +26,4 @@ appVersion: "1.16.0"
 dependencies:
   - name: k8s-operator
     version: 0.x.x
-    repository: file://../k8s-operator
+    repository: file://../../helm/deploy-app

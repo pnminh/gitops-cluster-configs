@@ -1,9 +1,0 @@
-resources:
-  - ../../../../components/image-registry-policy
-patches:
-  - target:
-      group: config.openshift.io
-      kind: Image
-      version: v1
-      name: cluster
-    path: image-patch.yaml

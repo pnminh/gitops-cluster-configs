@@ -5,10 +5,11 @@ if [ -z "$1" ]; then
     echo "Please provide an app name."
     exit 1
 fi
-
+# Get the directory of the script
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 # Set app name
 APP_NAME=$1
-BASE_DIR="../apps/$APP_NAME"
+BASE_DIR="$SCRIPT_DIR/../apps/$APP_NAME"
 CHART_DIR="$BASE_DIR/$APP_NAME"
 ENVIRONMENTS_DIR="$BASE_DIR/environments"
 CHART_YAML="$CHART_DIR/Chart.yaml"
@@ -30,7 +31,7 @@ version: 0.1.0
 dependencies:
   - name: deploy-app
     version: ">=0.1.0"
-    repository: "file://../deploy-app"
+    repository: "file://../../helm/deploy-app"
 EOF
 
 # Create values.yaml for umbrella helm chart with a comment
