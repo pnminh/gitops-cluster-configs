@@ -17,3 +17,11 @@ app-deployment:
       value: admin
     - name: PGDATA
       value: /temp/data
+  livenessProbe:
+    tcpSocket:
+        port: 5432
+    initialDelaySeconds: 30
+  readinessProbe:
+    tcpSocket:
+        port: 5432
+    initialDelaySeconds: 30
