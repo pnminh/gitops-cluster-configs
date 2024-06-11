@@ -29,9 +29,9 @@ description: A Helm chart for $APP_NAME
 type: application
 version: 0.1.0
 dependencies:
-  - name: deploy-app
+  - name: app-deployment
     version: ">=0.1.0"
-    repository: "file://../../helm/deploy-app"
+    repository: "file://../../helm/app-deployment"
 EOF
 
 # Create values.yaml for umbrella helm chart with a comment

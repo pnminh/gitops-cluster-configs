@@ -4,6 +4,6 @@ description: A Helm chart for todo-ui
 type: application
 version: 0.1.0
 dependencies:
-  - name: deploy-app
+  - name: app-deployment
     version: ">=0.1.0"
-    repository: "file://../../helm/deploy-app"
+    repository: "file://../../helm/app-deployment"

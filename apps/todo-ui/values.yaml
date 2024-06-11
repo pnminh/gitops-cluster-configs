@@ -1,5 +1,5 @@
 # Values file for todo-ui chart
-deploy-app:
+app-deployment:
   image:
     registry: quay.io/pnminh232
     path: todo-ui
