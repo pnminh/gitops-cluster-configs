@@ -1,6 +1,0 @@
-dependencies:
-- name: app-deployment
-  repository: file://../../helm/app-deployment
-  version: 0.1.1
-digest: sha256:674d1cab9c431048e38caa5d59b7cbd142383cf44de14579faf8bd866b098cd0
-generated: "2024-06-11T17:11:47.712223-05:00"
