@@ -25,3 +25,16 @@ app-deployment:
     tcpSocket:
       port: 5432
     initialDelaySeconds: 30
+ports:
+  - name: db
+    containerPort: 5432
+    rotocol: TCP
+service:
+  type: ClusterIP
+  ports: 
+    - name: http
+      protocol: TCP
+      port: 5432
+      targetPort: http
+route:
+  enabled: false
