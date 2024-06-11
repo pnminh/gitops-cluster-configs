@@ -14,7 +14,7 @@ spec:
       - path: apps/*/environments/dev/dev-1
   template:      
     metadata:
-      name: '{{index .path.segments 1}}-{{.path.basenameNormalized}}' 
+      name: '{{index .path.segments 1}}' 
     spec:
       # The project the application belongs to.
       project: default
