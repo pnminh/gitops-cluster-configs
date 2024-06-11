@@ -8,7 +8,7 @@ app-deployment:
     tag: "1.0.0"
   imagePullSecrets: 
     - name: quay
-   env:
+  env:
     - name: POSTGRES_DB
       value: todo-db
     - name: POSTGRES_USER
