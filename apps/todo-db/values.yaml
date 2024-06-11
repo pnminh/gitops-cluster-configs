@@ -19,9 +19,9 @@ app-deployment:
       value: /temp/data
   livenessProbe:
     tcpSocket:
-        port: 5432
+      port: 5432
     initialDelaySeconds: 30
   readinessProbe:
     tcpSocket:
-        port: 5432
+      port: 5432
     initialDelaySeconds: 30
