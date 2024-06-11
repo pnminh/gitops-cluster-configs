@@ -14,7 +14,7 @@ app-deployment:
     - name: quarkus.datasource.password
       value: admin
     - name: quarkus.datasource.jdbc.url
-      value: jdbc:postgresql://postgresql:5432/todo-db
+      value: jdbc:postgresql://todo-db:5432/todo-db
   livenessProbe:
     httpGet:
       path: /q/health/live
