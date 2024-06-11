@@ -15,3 +15,11 @@ deploy-app:
       value: admin
     - name: quarkus.datasource.jdbc.url
       value: jdbc:postgresql://postgresql:5432/todo-db
+  livenessProbe:
+    httpGet:
+      path: /q/health/live
+      port: http
+  readinessProbe:
+    httpGet:
+      path: /q/health/ready
+      port: http
