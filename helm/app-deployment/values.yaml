@@ -41,7 +41,7 @@ securityContext: {}
 ports:
   - name: http
     containerPort: 8080
-    rotocol: TCP
+    protocol: TCP
 service:
   type: ClusterIP
   ports: 

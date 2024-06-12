@@ -28,7 +28,7 @@ app-deployment:
   ports:
     - name: db
       containerPort: 5432
-      rotocol: TCP
+      protocol: TCP
   service:
     type: ClusterIP
     ports: 
