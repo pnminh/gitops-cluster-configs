@@ -1,18 +1,17 @@
 {{- define "library-chart.createSA" -}}
-{{- $root := .root -}}
-{{- if $root.serviceAccount -}}
-  {{- if $root.serviceAccount.create -}}
+{{- if .Values.serviceAccount -}}
+  {{- if .Values.serviceAccount.create -}}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ include "library-chart.serviceAccountName" $root }}
+  name: {{ include "library-chart.serviceAccountName" . }}
   labels:
-    {{- include "library-chart.labels" $root | nindent 4 }}
-  {{- with $root.serviceAccount.annotations }}
+    {{- include "library-chart.labels" . | nindent 4 }}
+  {{- with .Values.serviceAccount.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-automountServiceAccountToken: {{ $root.serviceAccount.automount }}
+automountServiceAccountToken: {{ .Values.serviceAccount.automount }}
   {{- end }}
 {{- end }}
 {{- end }}

@@ -1,15 +1,13 @@
 {{- define "library-chart.createSecret" -}}
-{{- $secret := .secret -}}
-{{- $root := .root -}}
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ $secret.name }}
+  name: {{ .Values.secret.name }}
   labels:
-    {{- include "library-chart.labels" $root | nindent 8 }}
-type: {{ $secret.type | default "Opaque" }}
+    {{- include "library-chart.labels" . | nindent 8 }}
+type: {{ .Values.type | default "Opaque" }}
 data:
-  {{- range $key, $value := $secret.data }}
+  {{- range $key, $value := .Values.data }}
   {{ $key }}: {{ $value | b64enc }}
   {{- end }}
 {{- end }}
