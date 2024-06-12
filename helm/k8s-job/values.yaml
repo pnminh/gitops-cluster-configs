@@ -1,0 +1,10 @@
+backoffLimit: 4
+restartPolicy: Never
+nodeSelector: {}
+affinity: {}
+image:
+  registry: quay.io/pnminh232/registry-dev
+  path: todo-ui
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.0.0"
