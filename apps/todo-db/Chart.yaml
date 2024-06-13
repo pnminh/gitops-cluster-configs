@@ -6,7 +6,7 @@ version: 0.1.0
 dependencies:
   - name: app-deployment
     version: ">=0.1.0"
-    repository: "file://../../helm/app-deployment"
+    repository: "https://pnminh.github.io/helm-repo"
   - name: library-chart
     version: 0.1.x
-    repository: "file://../../helm/library-chart"
+    repository: "https://pnminh.github.io/helm-repo"

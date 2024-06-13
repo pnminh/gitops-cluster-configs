@@ -31,7 +31,7 @@ version: 0.1.0
 dependencies:
   - name: app-deployment
     version: ">=0.1.0"
-    repository: "file://../../helm/app-deployment"
+    repository: "https://pnminh.github.io/helm-repo"
 EOF
 
 # Create values.yaml for umbrella helm chart with a comment
