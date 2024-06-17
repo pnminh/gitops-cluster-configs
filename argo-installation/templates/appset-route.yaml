@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: argocd-applicationset-controller
+  namespace: argocd
+spec:
+  to:
+    kind: Service
+    name: argo-argocd-applicationset-controller
+    weight: 100
+  port:
+    targetPort: http-webhook
+  tls:
+    termination: edge
