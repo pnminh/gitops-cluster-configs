@@ -8,3 +8,5 @@ app-deployment:
     tag: "main-5ae3100"
   imagePullSecrets: 
     - name: quay
+  blueGreen:
+    enabled: true

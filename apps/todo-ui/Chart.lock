@@ -1,0 +1,9 @@
+dependencies:
+- name: app-deployment
+  repository: https://pnminh.github.io/helm-repo
+  version: 0.1.2
+- name: library-chart
+  repository: https://pnminh.github.io/helm-repo
+  version: 0.1.1
+digest: sha256:8cb1890b97b6ef0e25658025b3f3539f85e06d364b941dfbf6bd6c2c02f12d70
+generated: "2024-06-17T16:32:19.48129-05:00"
