@@ -1,4 +1,9 @@
 ## Cluster configs using Gitops
+### ArgoCD installation
+- Using [helm chart](https://github.com/argoproj/argo-helm/tree/main)
+#### Argo Rollouts
+- Install [plugin](https://argo-rollouts.readthedocs.io/en/stable/installation/#kubectl-plugin-installation)
+Test: `oc argo rollouts version`
 ### ACM-Openshift GitOps itegration
 To enable ArgoCD integration with OpenShift Container Platform (OCP) clusters managed by Advanced Cluster Management (ACM), a binding resource between them is essential. 
 

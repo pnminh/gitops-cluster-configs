@@ -1,0 +1,12 @@
+apiVersion: v2
+name: argo-installation
+description: A Helm chart for argo-installation
+type: application
+version: 0.1.0
+dependencies:
+  - name: argo-cd
+    version: "7.1.3"
+    repository: "https://argoproj.github.io/argo-helm"
+  - name: argo-rollouts
+    version: "2.36.0"
+    repository: "https://argoproj.github.io/argo-helm"

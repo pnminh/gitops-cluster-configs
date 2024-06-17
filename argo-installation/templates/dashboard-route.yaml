@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: argo-rollouts-dashboard
+  namespace: argocd
+spec:
+  to:
+    kind: Service
+    name: argo-argo-rollouts-dashboard
+    weight: 100
+  port:
+    targetPort: dashboard
+  tls:
+    termination: edge

@@ -1,0 +1,27 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: rollout-bluegreen-active
+spec:
+  to:
+    kind: Service
+    name: rollout-bluegreen-active
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: rollout-bluegreen-preview
+spec:
+  to:
+    kind: Service
+    name: rollout-bluegreen-preview
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge

@@ -1,0 +1,12 @@
+argo-cd:
+  openshift:
+    enabled: true
+  server:
+    route:
+      enabled: true
+      annotations:
+        app: argo-cd
+      hostname: argo-cd.apps.rosa-rvgkv3.ijvc.p1.openshiftapps.com
+argo-rollouts:
+  dashboard:
+    enabled: true
