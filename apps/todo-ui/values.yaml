@@ -5,7 +5,7 @@ app-deployment:
     path: todo-ui
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "main-231da53"
+    tag: "main-5ae3100"
   imagePullSecrets: 
     - name: quay
   blueGreen:
